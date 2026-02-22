@@ -1,57 +1,28 @@
 name: quran_app
-description: "تطبيق القرآن الكريم - تطبيق جوال متكامل لقراءة وسماع القرآن الكريم مع مميزات متقدمة."
+description: A new Flutter project.
 publish_to: 'none'
-
 version: 1.0.0+1
 
 environment:
-  sdk: ^3.11.0
+  sdk: '>=3.0.0 <4.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
-
-  # UI & Design
-  cupertino_icons: ^1.0.8
+  cupertino_icons: ^1.0.2
   google_fonts: ^6.1.0
-
-  # State Management
-  provider: ^6.1.0
-
-  # Quran Data
-  quran: ^1.4.1
-
-  # Audio Player
-  just_audio: ^0.9.34
-
-  # Local Storage
+  audioplayers: ^5.2.1
   shared_preferences: ^2.2.2
-
-  # Network Requests
-  http: ^1.1.0
+  flutter_riverpod: ^2.4.9
+  path_provider: ^2.1.1
+  meta: any
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
-  flutter_lints: ^6.0.0
+  flutter_lints: ^3.0.0
 
 flutter:
   uses-material-design: true
-
-  # Assets
   assets:
-    - assets/
-
-  # Fonts
-  fonts:
-    - family: Amiri
-      fonts:
-        - asset: assets/fonts/Amiri-Regular.ttf
-        - asset: assets/fonts/Amiri-Bold.ttf
-          weight: 700
-        - asset: assets/fonts/Amiri-Italic.ttf
-          style: italic
-        - asset: assets/fonts/Amiri-BoldItalic.ttf
-          weight: 700
-          style: italic
+    - assets/fonts/
