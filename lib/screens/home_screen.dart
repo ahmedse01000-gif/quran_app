@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../services/quran_service.dart';
 import '../models/surah_model.dart';
-import '../themes.dart';
+import '../themes/app_themes.dart';
 import 'reading_screen.dart';
 import 'settings_screen.dart';
 import 'bookmarks_screen.dart';
@@ -14,7 +14,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  late Future<List<Surah>> _surahsFuture; // ignore: unused_field
+  late Future<List<Surah>> _surahsFuture;
   List<Surah> _allSurahs = [];
   List<Surah> _filteredSurahs = [];
   final TextEditingController _searchController = TextEditingController();

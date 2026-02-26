@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../providers.dart';
-import '../themes.dart';
+import '../providers/app_providers.dart';
+import '../themes/app_themes.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -16,7 +16,6 @@ class SettingsScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            // Theme Settings
             Padding(
               padding: const EdgeInsets.all(16),
               child: Column(
@@ -48,9 +47,7 @@ class SettingsScreen extends StatelessWidget {
                             style: Theme.of(context).textTheme.titleLarge,
                           ),
                           subtitle: Text(
-                            themeProvider.isDarkMode
-                                ? 'مفعل'
-                                : 'معطل',
+                            themeProvider.isDarkMode ? 'مفعل' : 'معطل',
                             style: Theme.of(context).textTheme.bodySmall,
                           ),
                           trailing: Switch(
@@ -70,8 +67,6 @@ class SettingsScreen extends StatelessWidget {
               ),
             ),
             const Divider(thickness: 2),
-
-            // Text Size Settings
             Padding(
               padding: const EdgeInsets.all(16),
               child: Column(
@@ -107,9 +102,7 @@ class SettingsScreen extends StatelessWidget {
                             min: 14,
                             max: 28,
                             divisions: 7,
-                            onChanged: (value) {
-                              // Font size adjustment
-                            },
+                            onChanged: (value) {},
                             activeColor: AppThemes.primaryColor,
                             inactiveColor:
                                 AppThemes.primaryColor.withValues(alpha: 0.2),
@@ -131,8 +124,6 @@ class SettingsScreen extends StatelessWidget {
               ),
             ),
             const Divider(thickness: 2),
-
-            // Display Settings
             Padding(
               padding: const EdgeInsets.all(16),
               child: Column(
@@ -171,9 +162,7 @@ class SettingsScreen extends StatelessWidget {
                             child: Text('واسع'),
                           ),
                         ],
-                        onChanged: (value) {
-                          // Line height adjustment
-                        },
+                        onChanged: (value) {},
                       ),
                     ),
                   ),
@@ -206,9 +195,7 @@ class SettingsScreen extends StatelessWidget {
                             child: Text('يسار'),
                           ),
                         ],
-                        onChanged: (value) {
-                          // Text alignment adjustment
-                        },
+                        onChanged: (value) {},
                       ),
                     ),
                   ),
@@ -216,8 +203,6 @@ class SettingsScreen extends StatelessWidget {
               ),
             ),
             const Divider(thickness: 2),
-
-            // About Section
             Padding(
               padding: const EdgeInsets.all(16),
               child: Column(
@@ -269,8 +254,6 @@ class SettingsScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 32),
-
-            // Footer
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(

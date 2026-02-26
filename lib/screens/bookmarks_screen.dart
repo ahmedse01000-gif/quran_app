@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../providers.dart';
-import '../themes.dart';
+import '../providers/app_providers.dart';
+import '../themes/app_themes.dart';
 import 'reading_screen.dart';
 
 class BookmarksScreen extends StatelessWidget {

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../providers.dart';
+import '../providers/app_providers.dart';
 import '../services/quran_service.dart';
-import '../themes.dart';
+import '../themes/app_themes.dart';
 import 'audio_player_screen.dart';
 
 class ReadingScreen extends StatefulWidget {
@@ -30,7 +30,6 @@ class _ReadingScreenState extends State<ReadingScreen> {
     _surahFuture =
         QuranService.getSurahWithEdition(widget.surahNumber, 'ar.uthmani');
 
-    // Update current position
     WidgetsBinding.instance.addPostFrameCallback((_) {
       context.read<QuranProvider>().updatePosition(widget.surahNumber, 1);
     });
@@ -119,7 +118,6 @@ class _ReadingScreenState extends State<ReadingScreen> {
             controller: _scrollController,
             padding: const EdgeInsets.all(16),
             children: [
-              // Surah Header
               Container(
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
@@ -150,8 +148,6 @@ class _ReadingScreenState extends State<ReadingScreen> {
                 ),
               ),
               const SizedBox(height: 24),
-
-              // Bismillah
               Container(
                 padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
@@ -171,8 +167,6 @@ class _ReadingScreenState extends State<ReadingScreen> {
                 ),
               ),
               const SizedBox(height: 24),
-
-              // Ayahs
               ...List.generate(
                 ayahs.length,
                 (index) {
@@ -230,7 +224,6 @@ class AyahWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          // Ayah Text
           Text(
             ayahText,
             style: Theme.of(context).textTheme.bodyLarge?.copyWith(
@@ -241,8 +234,6 @@ class AyahWidget extends StatelessWidget {
             textDirection: TextDirection.rtl,
           ),
           const SizedBox(height: 12),
-
-          // Ayah Number and Bookmark Button
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -265,13 +256,13 @@ class AyahWidget extends StatelessWidget {
                 ),
                 onPressed: () {
                   if (isBookmarked) {
-                    final index = bookmarkProvider.bookmarks.indexWhere(
+                    final idx = bookmarkProvider.bookmarks.indexWhere(
                       (b) =>
                           b['surahNumber'] == surahNumber &&
                           b['ayahNumber'] == ayahNumber,
                     );
-                    if (index != -1) {
-                      bookmarkProvider.removeBookmark(index);
+                    if (idx != -1) {
+                      bookmarkProvider.removeBookmark(idx);
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(
                           content: Text('تم حذف الإشارة المرجعية'),

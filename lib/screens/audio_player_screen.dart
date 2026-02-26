@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
-import '../themes.dart';
+import '../themes/app_themes.dart';
 
 class AudioPlayerScreen extends StatefulWidget {
   final int surahNumber;
@@ -23,7 +23,6 @@ class _AudioPlayerScreenState extends State<AudioPlayerScreen> {
   Duration _position = Duration.zero;
   String _selectedReciter = 'ar.alafasy';
 
-  // List of popular reciters
   final Map<String, String> _reciters = {
     'ar.alafasy': 'مشاري العفاسي',
     'ar.abdulbasit': 'عبد الباسط عبد الصمد',
@@ -130,7 +129,6 @@ class _AudioPlayerScreenState extends State<AudioPlayerScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            // Surah Info Card
             Container(
               padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
@@ -161,8 +159,6 @@ class _AudioPlayerScreenState extends State<AudioPlayerScreen> {
               ),
             ),
             const SizedBox(height: 32),
-
-            // Reciter Selection
             Text(
               'اختر القارئ',
               style: Theme.of(context).textTheme.headlineSmall,
@@ -193,8 +189,6 @@ class _AudioPlayerScreenState extends State<AudioPlayerScreen> {
               }).toList(),
             ),
             const SizedBox(height: 40),
-
-            // Progress Bar
             Column(
               children: [
                 SliderTheme(
@@ -232,12 +226,9 @@ class _AudioPlayerScreenState extends State<AudioPlayerScreen> {
               ],
             ),
             const SizedBox(height: 40),
-
-            // Player Controls
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                // Stop Button
                 Container(
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
@@ -256,8 +247,6 @@ class _AudioPlayerScreenState extends State<AudioPlayerScreen> {
                   ),
                 ),
                 const SizedBox(width: 24),
-
-                // Play/Pause Button
                 Container(
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
@@ -283,8 +272,6 @@ class _AudioPlayerScreenState extends State<AudioPlayerScreen> {
                   ),
                 ),
                 const SizedBox(width: 24),
-
-                // Repeat Button
                 Container(
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
@@ -297,16 +284,12 @@ class _AudioPlayerScreenState extends State<AudioPlayerScreen> {
                     icon: const Icon(Icons.repeat),
                     color: AppThemes.primaryColor,
                     iconSize: 32,
-                    onPressed: () {
-                      // Repeat functionality
-                    },
+                    onPressed: () {},
                   ),
                 ),
               ],
             ),
             const SizedBox(height: 32),
-
-            // Info Text
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
